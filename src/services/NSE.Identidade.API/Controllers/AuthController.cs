@@ -85,21 +85,10 @@ namespace NSE.Identidade.API.Controllers
             var user = await _userManager.FindByEmailAsync(email);
             var claims = await _userManager.GetClaimsAsync(user);
 
-            DefinirClaims(user, claims);
+            var identityClaims = await ObterClaimsUsuario(user, claims);
+            var encodedToken = GerarToken(identityClaims);
 
-            var token = GerarToken(GerarIdentityClaim(claims));
-
-            return new UsuarioRespostaLogin
-            {
-                AccessToken = token,
-                ExpiresIn = TimeSpan.FromHours(_appSettings.ExpiracaoHoras).TotalSeconds,
-                UsuarioToken = new UsuarioToken
-                {
-                    Id = user.Id,
-                    Email = user.Email,
-                    Claims = claims.Select(x => new UsuarioClaim { Type = x.Type, Value = x.Value })
-                }
-            };
+            return ObterRespostaToken(encodedToken, user, claims);
         }
 
         private string GerarToken(ClaimsIdentity identityClaims)
@@ -117,7 +106,7 @@ namespace NSE.Identidade.API.Controllers
             return tokenHandler.WriteToken(token);
         }
 
-        private async void DefinirClaims(IdentityUser user, IList<Claim> claims)
+        private async Task<ClaimsIdentity> ObterClaimsUsuario(IdentityUser user, IList<Claim> claims)
         {
             var userRoles = await _userManager.GetRolesAsync(user);
 
@@ -131,6 +120,8 @@ namespace NSE.Identidade.API.Controllers
             {
                 claims.Add(new Claim("role", userRole));
             }
+
+            return GerarIdentityClaim(claims);
         }
 
         private ClaimsIdentity GerarIdentityClaim(IList<Claim> claims)
@@ -138,6 +129,21 @@ namespace NSE.Identidade.API.Controllers
             var identityClaims = new ClaimsIdentity();
             identityClaims.AddClaims(claims);
             return identityClaims;
+        }
+
+        private UsuarioRespostaLogin ObterRespostaToken(string encodedToken, IdentityUser user, IList<Claim> claims)
+        {
+            return new UsuarioRespostaLogin
+            {
+                AccessToken = encodedToken,
+                ExpiresIn = TimeSpan.FromHours(_appSettings.ExpiracaoHoras).TotalSeconds,
+                UsuarioToken = new UsuarioToken
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    Claims = claims.Select(x => new UsuarioClaim { Type = x.Type, Value = x.Value })
+                }
+            };
         }
 
         private static long ToUnixEpochDate(DateTime date)
