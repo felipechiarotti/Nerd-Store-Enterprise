@@ -20,6 +20,7 @@ namespace NSE.WebApp.MVC
         {
             services.AddIdentityConfiguration();
             services.AddControllersWithViews();
+            services.RegisterServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
