@@ -63,6 +63,14 @@ namespace NSE.WebApp.MVC.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [HttpGet]
+        [Route("sair")]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
+        }
+
         private async Task RealizarLogin(UsuarioRespostaLogin resposta)
         {
             var token = DecodificarToken(resposta.AccessToken);
