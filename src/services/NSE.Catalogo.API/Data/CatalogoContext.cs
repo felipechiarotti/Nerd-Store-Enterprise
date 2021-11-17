@@ -8,5 +8,10 @@ namespace NSE.Catalogo.API.Data
         public CatalogoContext(DbContextOptions<CatalogoContext> options) : base(options) { }
 
         public DbSet<Produto> Produtos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(CatalogoContext).Assembly);
+        }
     }
 }
