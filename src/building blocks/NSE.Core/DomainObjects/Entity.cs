@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NSE.Core.DomainObjects
 {
@@ -17,7 +15,7 @@ namespace NSE.Core.DomainObjects
             return Id.Equals(compareTo.Id);
         }
 
-        public static bool operator == (Entity a, Entity b)
+        public static bool operator ==(Entity a, Entity b)
         {
             if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
                 return true;
@@ -43,5 +41,4 @@ namespace NSE.Core.DomainObjects
             return $"{GetType().Name} [Id={Id}]";
         }
     }
-}
 }
