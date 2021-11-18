@@ -11,5 +11,16 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.13" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Application\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\building blocks\NSE.Core\NSE.Core.csproj" />
+  </ItemGroup>
+
 
 </Project>
