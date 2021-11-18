@@ -9,7 +9,7 @@ namespace NSE.WebApi.Core.Identidade
 {
     public static class JwtConfig
     {
-        public static IServiceCollection AddJwtConfiguration(this IServiceCollection services, IConfiguration configuration)
+        public static void AddJwtConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
             var appSettingsSection = configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
@@ -35,15 +35,12 @@ namespace NSE.WebApi.Core.Identidade
                     ValidIssuer = appSettings.Emissor
                 };
             });
-            return services;
         }
 
-        public static IApplicationBuilder UseAuthConfiguration(this IApplicationBuilder app)
+        public static void UseAuthConfiguration(this IApplicationBuilder app)
         {
-            app.UseAuthorization();
             app.UseAuthentication();
-
-            return app;
+            app.UseAuthorization();
         }
     }
 }
