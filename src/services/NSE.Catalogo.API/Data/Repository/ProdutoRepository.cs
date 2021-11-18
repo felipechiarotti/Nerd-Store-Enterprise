@@ -27,7 +27,7 @@ namespace NSE.Catalogo.API.Data.Repository
             _context.Update(item);
         }
 
-        public async Task<Produto> ObterPorId(Guid id)
+        public async Task<Produto> ObterPorIdAsync(Guid id)
         {
            return await _context.Produtos.FindAsync(id);
         }
