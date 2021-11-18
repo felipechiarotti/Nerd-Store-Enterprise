@@ -5,10 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NSE.Catalogo.API.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace NSE.Catalogo.API.Configuration
 {
@@ -24,7 +20,7 @@ namespace NSE.Catalogo.API.Configuration
             services.AddCors(options =>
             {
                 options.AddPolicy("Total",
-                    builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+                    builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
         }
 
