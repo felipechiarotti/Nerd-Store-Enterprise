@@ -57,7 +57,6 @@ namespace NSE.Identidade.API.Controllers
         [HttpPost("autenticar")]
         public async Task<ActionResult> Login(UsuarioLogin usuarioLogin)
         {
-            return new StatusCodeResult(401);
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             bool persistent = false;

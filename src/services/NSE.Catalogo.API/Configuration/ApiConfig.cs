@@ -36,10 +36,10 @@ namespace NSE.Catalogo.API.Configuration
 
             app.UseRouting();
 
-            app.UseAuthConfiguration();
+            
             app.UseCors("Total");
 
-            app.UseAuthorization();
+            app.UseAuthConfiguration();
 
             app.UseEndpoints(endpoints =>
             {
