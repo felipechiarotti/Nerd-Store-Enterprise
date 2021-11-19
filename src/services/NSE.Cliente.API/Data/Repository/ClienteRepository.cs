@@ -1,4 +1,6 @@
-﻿using NSE.Clientes.API.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using NSE.Clientes.API.Models;
+using NSE.Core.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,10 @@ namespace NSE.Clientes.API.Data.Repository
             _context = context;
         }
 
+        public IUnitOfWork UnitOfWork => _context;
+
         public void Adicionar(Cliente item)
-        {
-            throw new NotImplementedException();
-        }
+            => _context.Clientes.Add(item);
 
         public void Atualizar(Cliente item)
         {
@@ -26,18 +28,16 @@ namespace NSE.Clientes.API.Data.Repository
         }
 
         public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+            => _context.Dispose();
+
+        public async Task<Cliente> ObterPorCpf(string cpf)
+            => await _context.Clientes.FirstOrDefaultAsync(c => c.Cpf.Numero == cpf);
 
         public async Task<Cliente> ObterPorIdAsync(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+            => await _context.Clientes.FirstOrDefaultAsync(c => c.Id == id);
 
         public async Task<IEnumerable<Cliente>> ObterTodosAsync()
-        {
-            throw new NotImplementedException();
-        }
+            => await _context.Clientes.AsNoTracking().ToListAsync();
+
     }
 }
