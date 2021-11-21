@@ -23,7 +23,7 @@ namespace NSE.Clientes.API.Application.Commands
                 return message.ValidationResult;
 
             var clienteExistente = await _clienteRepository.ObterPorCpf(message.Cpf);
-            if(clienteExistente == null)
+            if(clienteExistente != null)
             {
                 AdicionarErro("Este CPF já está em uso.");
                 return ValidationResult;
