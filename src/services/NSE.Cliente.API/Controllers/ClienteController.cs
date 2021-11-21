@@ -19,13 +19,15 @@ namespace NSE.Clientes.API.Controllers
             _clienteRepository = clienteRepository;
         }
 
+        [ClaimsAuthorize("Cliente", "Ler")]
+        [HttpGet("clientes")]
         public async Task<IEnumerable<Cliente>> Index()
         {
             return await _clienteRepository.ObterTodosAsync();
         }
 
         [ClaimsAuthorize("Cliente", "Ler")]
-        [HttpGet("catalogo/produtos/{id}")]
+        [HttpGet("clientes/{id}")]
         public async Task<Cliente> ClienteDetalhe(Guid id)
         {
             return await _clienteRepository.ObterPorIdAsync(id);
