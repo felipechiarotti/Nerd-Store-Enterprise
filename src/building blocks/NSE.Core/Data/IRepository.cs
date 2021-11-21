@@ -7,6 +7,7 @@ namespace NSE.Core.Data
 {
     public interface IRepository<T> : IDisposable where T : IAggregateRoot
     {
+        IUnitOfWork UnitOfWork { get; }
         Task<IEnumerable<T>> ObterTodosAsync();
         Task<T> ObterPorIdAsync(Guid id);
         void Adicionar(T item);
