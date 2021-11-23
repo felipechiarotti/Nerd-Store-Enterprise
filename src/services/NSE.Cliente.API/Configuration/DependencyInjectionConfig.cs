@@ -25,7 +25,7 @@ namespace NSE.Clientes.API.Configuration
             services.AddScoped<IRequestHandler<RegistrarClienteCommand, ValidationResult>, ClienteCommandHandler>();
             services.AddScoped<INotificationHandler<ClienteRegistradoEvent>, ClienteEventHandler>();
 
-            services.AddHostedService<RegistroClienteIntegrationHandler>();
+            
         }
     }
 }
