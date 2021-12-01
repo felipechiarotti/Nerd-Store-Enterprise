@@ -12,8 +12,8 @@ namespace NSE.Clientes.API.Configuration
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "NerdStore Enterprise Clientes API",
-                    Description = "Esta é a API de Clientes da NerdStore",
+                    Title = "NerdStore Enterprise Carrinho API",
+                    Description = "Esta é a API de Carrinho da NerdStore",
                     Contact = new OpenApiContact() { Name = "Felipe Chiarotti", Email = "felipechi97@gmail.com" },
                     License = new OpenApiLicense() { Name = "MIT", Url = new System.Uri("https://opensource.org/licenses/MIT") }
                 });
