@@ -3,11 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NSE.Carrinho.API.Configuration;
-using NSE.Clientes.API.Configuration;
+using NSE.Bff.Compras.Configuration;
 using NSE.WebApi.Core.Identidade;
 
-namespace NSE.Carrinho.API
+namespace NSE.Bff.Compras
 {
     public class Startup
     {
@@ -35,9 +34,9 @@ namespace NSE.Carrinho.API
             services.AddJwtConfiguration(Configuration);
             services.AddSwaggerConfiguration();
             services.RegisterServices();
+            services.AddMessageBusConfiguration(Configuration);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseSwaggerConfiguration();
