@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NSE.Clientes.API.Application.Commands;
-using NSE.Clientes.API.Models;
 using NSE.Core.Mediator;
 using NSE.WebApi.Core.Controllers;
-using NSE.WebApi.Core.Identidade;
 using System;
 using System.Threading.Tasks;
 
