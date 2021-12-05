@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using NSE.Bff.Compras.Extensions;
 using NSE.Bff.Compras.Models.Carrinho;
+using NSE.Bff.Compras.Models.Pedidos;
 using NSE.Bff.Compras.Services.Interfaces;
 using NSE.Core.Communication;
 using System;
@@ -26,7 +27,7 @@ namespace NSE.Bff.Compras.Services
 
             var response = await _httpClient.PostAsync("/carrinho/", itemContent);
 
-            if(!TratarErrosResponse(response)) return await DeserializarObjetoResponse<ResponseResult>(response);
+            if (!TratarErrosResponse(response)) return await DeserializarObjetoResponse<ResponseResult>(response);
 
             return RetornoOk();
         }
@@ -53,8 +54,18 @@ namespace NSE.Bff.Compras.Services
 
         public async Task<ResponseResult> RemoverItemCarrinho(Guid produtoId)
         {
-
             var response = await _httpClient.DeleteAsync($"/carrinho/{produtoId}");
+
+            if (!TratarErrosResponse(response)) return await DeserializarObjetoResponse<ResponseResult>(response);
+
+            return RetornoOk();
+        }
+
+        public async Task<ResponseResult> AplicarVoucherCarrinho(VoucherDTO voucher)
+        {
+            var itemContent = ObterConteudo(voucher);
+
+            var response = await _httpClient.PostAsync("/carrinho/aplicar-voucher/", itemContent);
 
             if (!TratarErrosResponse(response)) return await DeserializarObjetoResponse<ResponseResult>(response);
 
