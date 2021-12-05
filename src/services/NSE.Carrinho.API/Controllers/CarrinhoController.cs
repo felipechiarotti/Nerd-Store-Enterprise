@@ -104,6 +104,20 @@ namespace NSE.Carrinho.API.Controllers
             }
             _context.CarrinhoCliente.Update(carrinho);
         }
+
+        [HttpPost]
+        [Route("carrinho/aplicar-voucher")]
+        public async Task<IActionResult> AplicarVoucher(Voucher voucher)
+        {
+            var carrinho = await ObterCarrinhoCliente();
+
+            carrinho.AplicarVoucher(voucher);
+
+            _context.CarrinhoCliente.Update(carrinho);
+            var result = await _context.SaveChangesAsync();
+            if (result <= 0) AdicionarErroProcessamento("Não foi possível persistir os dados no banco");
+            return CustomResponse();
+        }
         private CarrinhoCliente CriarNovoCarrinho() => new CarrinhoCliente(_user.ObterUserId());
         private void AdicionarCarrinhoAoContexto(CarrinhoCliente carrinho) => _context.Add(carrinho);
         private async Task PersistirDados()
