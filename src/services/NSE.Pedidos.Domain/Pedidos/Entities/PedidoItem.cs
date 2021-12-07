@@ -1,8 +1,9 @@
-﻿using System;
+﻿using NSE.Core.DomainObjects;
+using System;
 
 namespace NSE.Pedidos.Domain.Pedidos.Entities
 {
-    public class PedidoItem
+    public class PedidoItem : Entity, IAggregateRoot
     {
         public PedidoItem(Guid produtoId, string nome, int quantidade,
                             decimal valorUnitario, string produtoImagem)
