@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace NSE.Pedidos.API.Application.DTO
+﻿namespace NSE.Pedidos.API.Application.DTO
 {
     public class VoucherDTO
     {

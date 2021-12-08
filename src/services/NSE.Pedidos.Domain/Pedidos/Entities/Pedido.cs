@@ -38,7 +38,7 @@ namespace NSE.Pedidos.Domain.Pedidos.Entities
         public Voucher Voucher { get; private set; }
 
 
-        internal void CalcularValorPedido()
+        public void CalcularValorPedido()
         {
             ValorTotal = PedidoItems.Sum(p => p.CalcularValor());
             CalcularValorTotalDesconto();
