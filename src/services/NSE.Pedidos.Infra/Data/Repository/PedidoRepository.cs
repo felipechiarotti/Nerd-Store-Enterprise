@@ -4,6 +4,7 @@ using NSE.Pedidos.Domain.Pedidos.Entities;
 using NSE.Pedidos.Domain.Pedidos.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -46,5 +47,7 @@ namespace NSE.Pedidos.Infra.Data.Repository
             _context.Pedidos.Update(item);
 
         public void Dispose() => _context.Dispose();
+
+        public DbConnection ObterConexao() => _context.Database.GetDbConnection();
     }
 }
