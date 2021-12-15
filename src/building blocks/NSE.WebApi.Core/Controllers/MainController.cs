@@ -65,5 +65,10 @@ namespace NSE.WebApi.Core.Controllers
         protected bool OperacaoValida() => !Erros.Any();
 
         protected void AdicionarErroProcessamento(string erro) => Erros.Add(erro);
+
+        protected void LimparErrosProcessamento()
+        {
+            Erros.Clear();
+        }
     }
 }

@@ -13,5 +13,6 @@ namespace NSE.Bff.Compras.Services.Interfaces
         Task<ResponseResult> AtualizarItemCarrinhho(Guid produtoId, ItemCarrinhoDTO carrinho);
         Task<ResponseResult> RemoverItemCarrinho(Guid produtoId);
         Task<ResponseResult> AplicarVoucherCarrinho(VoucherDTO voucher);
+
     }
 }
