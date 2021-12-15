@@ -25,20 +25,21 @@ namespace NSE.Pedidos.API.Configuration
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IAspNetUser, AspNetUser>();
 
-            //Commands
-            services.AddScoped<IRequestHandler<AdicionarPedidoCommand, ValidationResult>, PedidoCommandHandler>();
-
             //Application
             services.AddScoped<IMediatorHandler, MediatorHandler>();
             services.AddScoped<IVoucherQueries, VoucherQueries>();
+            services.AddScoped<IPedidoQueries, PedidoQueries>();
             
             //Data
             services.AddScoped<IVoucherRepository, VoucherRepository>();
             services.AddScoped<IPedidoRepository, PedidoRepository>();
             services.AddScoped<PedidosContext>();
 
-            
-            //services.AddScoped<INotificationHandler<PedidoRealizadoEvent>, PedidoEventHandler>();
+            //Commands
+            services.AddScoped<IRequestHandler<AdicionarPedidoCommand, ValidationResult>, PedidoCommandHandler>();
+
+            //Events
+            services.AddScoped<INotificationHandler<PedidoRealizadoEvent>, PedidoEventHandler>();
         }
     }
 }
