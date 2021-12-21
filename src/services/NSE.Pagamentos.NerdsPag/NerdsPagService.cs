@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace NSE.Pagamentos.NerdsPag
+﻿namespace NSE.Pagamentos.NerdsPag
 {
     public class NerdsPagService
     {
