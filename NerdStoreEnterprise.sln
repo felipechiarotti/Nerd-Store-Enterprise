@@ -61,7 +61,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NSE.Pedidos.Domain", "src\s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NSE.Pedidos.Infra", "src\services\NSE.Pedidos.Infra\NSE.Pedidos.Infra.csproj", "{75A849E7-0EFC-4988-9CD6-12A3FCCE68A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSE.Pagamentos.NerdsPag", "src\services\NSE.Pagamento.API\NSE.Pagamentos.NerdsPag\NSE.Pagamentos.NerdsPag.csproj", "{7B4DC2D3-9AD4-4E26-96B0-8FE3F3B6BAA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSE.Pagamentos.NerdsPag", "src\services\NSE.Pagamentos.NerdsPag\NSE.Pagamentos.NerdsPag.csproj", "{B4DA33AB-493E-462C-B94B-BEC3C566EA6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,10 +121,10 @@ Global
 		{75A849E7-0EFC-4988-9CD6-12A3FCCE68A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75A849E7-0EFC-4988-9CD6-12A3FCCE68A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75A849E7-0EFC-4988-9CD6-12A3FCCE68A8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B4DC2D3-9AD4-4E26-96B0-8FE3F3B6BAA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B4DC2D3-9AD4-4E26-96B0-8FE3F3B6BAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B4DC2D3-9AD4-4E26-96B0-8FE3F3B6BAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B4DC2D3-9AD4-4E26-96B0-8FE3F3B6BAA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4DA33AB-493E-462C-B94B-BEC3C566EA6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4DA33AB-493E-462C-B94B-BEC3C566EA6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4DA33AB-493E-462C-B94B-BEC3C566EA6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4DA33AB-493E-462C-B94B-BEC3C566EA6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -158,7 +158,7 @@ Global
 		{0AE6B777-89CA-421C-A5F5-3E299327411D} = {0266CDC3-C39C-4114-B237-7C53F4041E4E}
 		{38380FAF-FF5A-4D69-9596-BAF53DFAA973} = {A1554471-F624-436F-B06B-77AAA671AC1C}
 		{75A849E7-0EFC-4988-9CD6-12A3FCCE68A8} = {A1554471-F624-436F-B06B-77AAA671AC1C}
-		{7B4DC2D3-9AD4-4E26-96B0-8FE3F3B6BAA1} = {274FCC3A-927F-4BF0-8E21-16108BC5C6D8}
+		{B4DA33AB-493E-462C-B94B-BEC3C566EA6E} = {274FCC3A-927F-4BF0-8E21-16108BC5C6D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F903A11D-C363-45D0-A88E-10A0ED50919E}
