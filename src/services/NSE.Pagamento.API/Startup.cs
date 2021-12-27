@@ -36,6 +36,8 @@ namespace NSE.Pagamentos.API
 
             services.AddSwaggerConfiguration();
 
+            services.AddMessageBusConfiguration(Configuration);
+
             services.RegisterServices();
 
         }

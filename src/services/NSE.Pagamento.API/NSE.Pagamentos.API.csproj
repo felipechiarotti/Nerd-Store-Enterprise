@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\building blocks\NSE.MessageBus\NSE.MessageBus.csproj" />
     <ProjectReference Include="..\..\building blocks\NSE.WebApi.Core\NSE.WebApi.Core.csproj" />
     <ProjectReference Include="..\NSE.Pagamentos.NerdsPag\NSE.Pagamentos.NerdsPag.csproj" />
   </ItemGroup>
