@@ -14,11 +14,11 @@ namespace NSE.Pedidos.API.Services
 {
     public class PedidoOrquestradorIntegrationHandler : IHostedService, IDisposable
     {
-        private readonly ILogger<PedidoOrquestradorIntegrationHandler> _logger;
+        private readonly ILogger<PedidoIntegrationHandler> _logger;
         private Timer _timer;
         private readonly IServiceProvider _serviceProvider;
 
-        public PedidoOrquestradorIntegrationHandler(ILogger<PedidoOrquestradorIntegrationHandler> logger, IServiceProvider serviceProvider)
+        public PedidoOrquestradorIntegrationHandler(ILogger<PedidoIntegrationHandler> logger, IServiceProvider serviceProvider)
         {
             _logger = logger;
             _serviceProvider = serviceProvider;

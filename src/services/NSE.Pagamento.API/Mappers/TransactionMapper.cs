@@ -19,5 +19,18 @@ namespace NSE.Pagamentos.API.Mappers
                 NSU = transaction.Nsu,
                 TID = transaction.Tid,
             };
+
+        public static Transaction ParaTransaction(Transacao transacao, NerdsPagService nerdsPagService) =>
+         new Transaction(nerdsPagService)
+         {
+             Status = (TransactionStatus)transacao.Status,
+             Amount = transacao.ValorTotal,
+             CardBrand = transacao.BandeiraCartao,
+             AuthorizationCode = transacao.CodigoAutorizacao,
+             Cost = transacao.CustoTransacao,
+             Nsu = transacao.NSU,
+             Tid = transacao.TID
+         };
     }
 }
+
