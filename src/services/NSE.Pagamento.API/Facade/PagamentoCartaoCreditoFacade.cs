@@ -47,5 +47,23 @@ namespace NSE.Pagamentos.API.Facade
 
             return TransactionMapper.ParaTransacao(await transacao.AuthorizeCardTransaction());
         }
+
+        public async Task<Transacao> CancelarAutorizacao(Transacao transacao)
+        {
+            var nerdsPagSvc = new NerdsPagService(_pagamentoConfig.DefaultApiKey, _pagamentoConfig.DefaultEncryptionKey);
+
+            var transaction = TransactionMapper.ParaTransaction(transacao, nerdsPagSvc);
+
+            return TransactionMapper.ParaTransacao(await transaction.CancelAuthorization());
+        }
+
+        public async Task<Transacao> CapturarPagamento(Transacao transacao)
+        {
+            var nerdsPagSvc = new NerdsPagService(_pagamentoConfig.DefaultApiKey, _pagamentoConfig.DefaultEncryptionKey);
+
+            var transaction = TransactionMapper.ParaTransaction(transacao, nerdsPagSvc);
+
+            return TransactionMapper.ParaTransacao(await transaction.CaptureCardTransaction());
+        }
     }
 }
