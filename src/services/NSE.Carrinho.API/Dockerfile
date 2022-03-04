@@ -7,7 +7,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["src/services/NSE.Carrinho.API/NSE.Carrinho.API.csproj", "src/services/NSE.Carrinho.API/"]
+COPY ["NSE.Carrinho.API.csproj", "src/services/NSE.Carrinho.API/"]
+
 RUN dotnet restore "src/services/NSE.Carrinho.API/NSE.Carrinho.API.csproj"
 COPY . .
 WORKDIR "/src/src/services/NSE.Carrinho.API"
